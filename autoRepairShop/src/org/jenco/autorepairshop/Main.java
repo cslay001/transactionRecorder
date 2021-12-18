@@ -25,7 +25,9 @@ public class Main {
 		
 		int transactionNumber = (int) (Math.random() * 1000000);
 		
-		Transaction transaction = new Transaction(transactionNumber, customerName, shopName, amount);
+		Customer customer = new Customer(customerName, 1000 - amount);
+		Shop shop = new Shop(shopName, 1000 + amount);
+		Transaction transaction = new Transaction(transactionNumber, customer.getName(), shopName, amount);
 		
 		
 		
@@ -36,6 +38,10 @@ public class Main {
 		System.out.println("customer name: " + transaction.getCustomerName());
 		System.out.println("shop name: " + transaction.getshopName());
 		System.out.println("total amount: $" + transaction.getAmount());
+		System.out.println("");
+		System.out.println("new account balances: ");
+		System.out.println(customer.getName() + " account balance: $" + customer.getAccountBalance());
+		System.out.println(shop.getName() + " account balance: $" + shop.getAccountBalance());
 	}
 
 }
